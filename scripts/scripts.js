@@ -3,55 +3,25 @@
 console.log('Task 1');
 
 function ramka() {
-    var group = prompt('Введите номер группы'),
-        name = prompt('Введите ФИО'),
-        hw = ('*Домашняя работа: Функции');
-        student = ('*Выполнил студент гр.: '),
-        star = ('*'),
-        lengthstudent = student.length + group.length + star.length,
-        lengthname = name.length,
-        lengthname1 = lengthstudent - lengthname,
-        array1 = [],
-        array2 = [],
-        array3 = [],
-        array4 = [],
-        a = 0,
-        b = 0,
-        c = 0,
-        d = 0;
-    
-    for (; a < lengthstudent; a++) {
-        array1.push('*');
-    }
-    for (; b < lengthname + 2; b++) {
-        array2.push('*');
-    }
-    for (; c < lengthstudent - 25; c++) {
-        array3.push('');
-    }
-    for (; d < lengthname1 - 1; d++) {
-        array4.push('');
+    let array = [],
+        length = 0,
+        strLength = 0;
+
+    array.push('* Домашняя работа: Функции')
+    array.push('* Выполнил: студент гр. ' + prompt('Введите номер группы'));
+    array.push('* ' + prompt('Введите ФИО'));
+
+    for (let i = 0; i < array.length; i++) {
+        strLength = array[i].length;
+        if (length < strLength) length = strLength;
     }
 
-    var array1l = array1.join(''),
-        array2l = array2.join(''),
-        array3l = array3.join(' '),
-        array4l = array4.join(' ');
+    array.unshift('*'.repeat(length));
+    array.push('*'.repeat(length));
 
-    if (a < b) {
-        console.log(array2l);
-    } else {
-        console.log(array1l);
-    }
-
-    console.log(hw + array3.join(' ') + star);
-    console.log(student + group + star);
-    console.log(star + name + array4l + star);
-
-    if (a < b) {
-        console.log(array2l);
-    } else {
-        console.log(array1l);
+    for (let i = 0; i < array.length; i++) {
+        array[i] = array[i] + (' '.repeat(length - array[i].length) + '*');
+        console.log(array[i]);
     }
 }
 ramka();
