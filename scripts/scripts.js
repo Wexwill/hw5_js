@@ -8,8 +8,8 @@ function ramka() {
         strLength = 0;
 
     array.push('* Домашняя работа: Функции')
-    array.push('* Выполнил: студент гр. ' + prompt('Введите номер группы'));
-    array.push('* ' + prompt('Введите ФИО'));
+    array.push('* Выполнил: студент гр. ' + prompt('Введите номер группы') + ' ');
+    array.push('* ' + prompt('Введите ФИО') + ' ');
 
     for (let i = 0; i < array.length; i++) {
         strLength = array[i].length;
@@ -54,3 +54,16 @@ function triangle () {
 }
 triangle();
 console.log('');
+
+    // task 3
+
+console.log('Task 3');
+
+function email () {
+    let email = prompt('Введите email'),
+        test = /(\b[a-zA-Z0-9][a-zA-Z0-9\.]{1,100}[a-zA-Z0-9]\b)(\@)(\b[a-zA-Z0-9][\w\-\.]*[a-zA-Z0-9]\b)(\.)([a-z]{2,3})/g;
+
+    if (test.test(email) == true) alert('email введен корректно!');
+    else alert('Некорректный email!');
+}
+email();
